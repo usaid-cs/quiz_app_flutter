@@ -3,6 +3,7 @@ import 'package:quizapp/Screens/quiz_screen.dart';
 import 'package:quizapp/Customization/widgets.dart';
 import 'package:quizapp/Customization/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(QuizApp());
@@ -97,13 +98,15 @@ class StartScreen extends StatefulWidget {
 class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size.width;
+
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        const Icon(
+        Icon(
           Icons.calculate,
           color: Color.fromARGB(220, 255, 255, 255),
-          size: 240,
+          size: size > 600 ? 100 : 240,
         ),
         const SizedBox(
           height: 14,

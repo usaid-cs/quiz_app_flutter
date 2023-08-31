@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:quizapp/Customization/theme.dart';
 
 class DetailedResult extends StatelessWidget {
-  const DetailedResult({super.key, required this.resultSummary});
+  const DetailedResult(
+      {super.key, required this.resultSummary, required this.screenSize});
 
   final List<Map<String, Object>> resultSummary;
+  final double screenSize;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 300,
+      height: screenSize < 600 ? 300 : 150,
       child: Card(
         color: cardColor,
         shape: RoundedRectangleBorder(
